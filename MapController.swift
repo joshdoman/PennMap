@@ -109,14 +109,24 @@ class MapController: UIViewController, UISearchControllerDelegate, UISearchBarDe
             
         })
         
+        searchController.isActive = false
+        
     }
     
     func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
+        searchController.isActive = true
+        animate()
         return true
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         tableHeightAnchor?.constant = 100
+        searchController.isActive = true
+        animate()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        tableHeightAnchor?.constant = 0
         animate()
     }
     
