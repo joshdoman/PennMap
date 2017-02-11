@@ -76,7 +76,6 @@ class JSONController: UIViewController {
             NetworkManager.getRequest(term: text, callbackString: { (jsonString) in
                 if let nsstring = jsonString {
                     DispatchQueue.main.async {
-                        print(nsstring)
                         self.label.text = nsstring as String
                     }
                 }
